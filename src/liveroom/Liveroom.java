@@ -88,6 +88,8 @@ public class Liveroom {
 				clickElement("com.starunion.hefantv:id/live_room_bottom_exit");
 			}else{
 				System.out.println("该直播间已结束");
+				//返回热门页
+				clickElement("com.starunion.hefantv:id/audience_end_back");
 			}
 			
 			System.out.println("执行了第"+i+"次进出直播间");
