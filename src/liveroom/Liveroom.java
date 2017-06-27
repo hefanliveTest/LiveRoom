@@ -43,7 +43,7 @@ public class Liveroom {
 				// URL("http://192.168.1.200:4723/wd/hub"),
 
 				capabilities);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		// 允许弹窗
 		// 弹窗是否存在该元素
@@ -51,7 +51,7 @@ public class Liveroom {
 			clickElement("com.android.packageinstaller:id/permission_allow_button");
 		}
 
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		
 		//进入登录页面,点击手机登录
 		clickElement("com.starunion.hefantv:id/iv_shoujilogin");
@@ -77,23 +77,15 @@ public class Liveroom {
 	public void inOutRoom() throws InterruptedException {
 
 		int i=1;
-		/*
-		 * System.out.println("执行test");
-		 * 
-		 * //------开始循环进出直播间------------// //2、总是进入存在的第一个直播间
-		 * 
-		 * //1.直播间是否存在,存在则进入直播间 while (driver.getPageSource().contains(
-		 * "com.starunion.hefantv:id/id_live_picture")) { WebElement nokjfs =
-		 * driver.findElement(By.id("com.starunion.hefantv:id/id_live_picture"))
-		 * ; nokjfs.click(); System.out.println("进入直播间"); }
-		 */
-		//直播间是否存在，存在进入，停留5秒再退出
+	
+		//直播间是否存在，存在进入，停留1秒再退出
 		while(driver.getPageSource().contains("com.starunion.hefantv:id/id_live_picture") && i<=50) {
 			clickElement("com.starunion.hefantv:id/id_live_picture");
-			Thread.sleep(5000);//在直播间停留3秒
+			Thread.sleep(1000);//在直播间停留1秒
 			clickElement("com.starunion.hefantv:id/live_room_bottom_exit");
 			System.out.println("执行了第"+i+"次进出直播间");
 			i++;
+			Thread.sleep(1000);
 		}
 		
 		if(!driver.getPageSource().contains("com.starunion.hefantv:id/id_live_picture")){
