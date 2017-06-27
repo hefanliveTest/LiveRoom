@@ -82,7 +82,14 @@ public class Liveroom {
 		while(driver.getPageSource().contains("com.starunion.hefantv:id/id_live_picture") && i<=50) {
 			clickElement("com.starunion.hefantv:id/id_live_picture");
 			Thread.sleep(1000);//在直播间停留1秒
-			clickElement("com.starunion.hefantv:id/live_room_bottom_exit");
+			
+			//判断直播是否结束
+			if(driver.getPageSource().contains("com.starunion.hefantv:id/live_room_bottom_exit")){
+				clickElement("com.starunion.hefantv:id/live_room_bottom_exit");
+			}else{
+				System.out.println("该直播间已结束");
+			}
+			
 			System.out.println("执行了第"+i+"次进出直播间");
 			i++;
 			Thread.sleep(1000);
